@@ -21,7 +21,7 @@ const ProductListing = () => {
   },[]);
   console.log("Products:",products);
   return (
-    <div className="ui grid container" style= {{"margin-top": "20px"}}>
+    <div className="ui grid container">
       <ProductComponent/>
     </div>
   );
