@@ -1,4 +1,13 @@
-import { ActionTypes } from "../constants/action-types"
+import fakestoreapi from "../../apis/fakeStoreApi";
+import { ActionTypes } from "../constants/action-types";
+
+// this async needs middleware to hold action creator until it receives data from server.
+// once data is received, it gonna dispatch and create new state
+// from https://github.com/reduxjs/redux-thunk/blob/master/src/index.ts
+export const fetchProducts = () => async (dispatch) => {
+    const response = await fakestoreapi.get("/products");
+    dispatch({type:ActionTypes.FETCH_PRODUCTS, payload: response.data});
+  };
 
 export const setProducts = (products) => {
   return {
